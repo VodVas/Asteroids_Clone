@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7a66486caca0f48819a49802df5583, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  _screenWidth: 25
+  _screenHeight: 15
+  _playerAcceleration: 10
+  _playerMaxSpeed: 8
+  _playerRotationSpeed: 180
+  _playerDrag: 0.99
+  _bulletSpeed: 15
+  _bulletLifetime: 2
+  _maxLaserCharges: 3
+  _laserRechargeTime: 5
+  _laserRange: 50
+  _laserVisualActiveTime: 0.3
+  _bulletCooldown: 0.25
+  _bulletPositionOffset: 0.5
+  _bulletInheritVelocityFactor: 0.5
+  _visualBulletRotationOffset: -90
+  _asteroidSpeeds:
+  - 2
+  - 3
+  - 4
+  _asteroidScores: 140000003200000064000000
+  _asteroidFragments: 2
+  _asteroidColliderRadiusPerSize: 0.3
+  _asteroidFragmentOffsetDistance: 0.5
+  _asteroidVisualScaleFactor: 0.2
+  _ufoSpeed: 3
+  _ufoScore: 200
+  _ufoColliderRadius: 0.5
+  _initialSpawnDelay: 3
+  _minSpawnDelay: 0.5
+  _spawnAcceleration: 0.95
+  _initialAsteroidsCount: 3
+  _ufoSpawnDelayMultiplier: 3
+  _defaultAsteroidSize: 3
+  _edgeSpawnMargin: 1
+  _asteroidPoolInitial: 20
+  _bulletPoolInitial: 30
+  _ufoPoolInitial: 5
+  _playerViewRotationOffset: 270
+  _defaultColliderRadius: 0.3
+  _thrustKey: 119
+  _bulletKey: 323
+  _laserKey: 32
+  _restartKey: 114
+  _rotationAxis: Horizontal
