@@ -8,7 +8,7 @@ namespace AsteroidsClone
         private readonly GameConfig _config;
         private readonly IInputService _inputService;
 
-        public Player Player => _player;
+        public Player Player => _player; //TODO под вопросом
         public event Action<Player> OnPlayerDestroyed;
 
         public PlayerController(Player player, GameConfig config, IInputService inputService)

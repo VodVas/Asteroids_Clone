@@ -8,7 +8,7 @@ namespace AsteroidsClone
         private readonly GameConfig _config;
         private readonly Player _player;
 
-        public EntityRegistry EntityManager => _entityManager;
+        public EntityRegistry EntityManager => _entityManager; //TODO: под вопросом
 
         public EntityController(EntityRegistry entityManager, GameConfig config, Player player)
         {

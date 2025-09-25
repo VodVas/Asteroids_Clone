@@ -5,37 +5,36 @@ namespace AsteroidsClone
     public sealed class Ufo : IGameEntity
     {
         private Vector2 _position;
-        private Vector2 _velocity;
-        private bool _isActive;
 
-        public int Id { get; }
         public Vector2 Position => _position;
-        public Vector2 Velocity => _velocity;
-        public float Rotation => 0f;
-        public bool IsActive => _isActive;
         public EntityType Type => EntityType.Ufo;
+
+        public Vector2 Velocity { get; private set; }
+        public bool IsActive { get; private set; }
+        public float Rotation { get; private set; } = 0f;
+        public int Id { get; }
 
         public Ufo(int id, Vector2 position)
         {
             Id = id;
             _position = position;
-            _velocity = Vector2.zero;
-            _isActive = true;
+            Velocity = Vector2.zero;
+            IsActive = true;
         }
 
         public void UpdateTarget(Vector2 targetPosition, float speed)
         {
-            if (!_isActive) return;
+            if (!IsActive) return;
 
             var direction = (targetPosition - _position).normalized;
-            _velocity = direction * speed;
+            Velocity = direction * speed;
         }
 
         public void Update(float deltaTime, GameConfig config)
         {
-            if (!_isActive) return;
+            if (!IsActive) return;
 
-            _position += _velocity * deltaTime;
+            _position += Velocity * deltaTime;
 
             var halfWidth = config.ScreenWidth / 2f;
             var halfHeight = config.ScreenHeight / 2f;
@@ -49,7 +48,7 @@ namespace AsteroidsClone
 
         public void Destroy()
         {
-            _isActive = false;
+            IsActive = false;
         }
     }
 }

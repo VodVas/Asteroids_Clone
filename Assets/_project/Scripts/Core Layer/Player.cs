@@ -5,25 +5,21 @@ namespace AsteroidsClone
 {
     public sealed class Player
     {
+        private Vector2 _position;
+
         public event Action<Player> OnDestroyed;
         public event Action<int> OnLaserChargesChanged;
 
-        private Vector2 _position;
-        private Vector2 _velocity;
-        private float _rotation;
-        private int _laserCharges;
-        private float _laserCooldown;
-        private bool _isThrusting;
-        private bool _isAlive;
-
         public Vector2 Position => _position;
-        public Vector2 Velocity => _velocity;
-        public float Rotation => _rotation;
-        public int LaserCharges => _laserCharges;
-        public float LaserCooldown => _laserCooldown;
-        public bool IsThrusting => _isThrusting;
-        public bool IsAlive => _isAlive;
-        public float Speed => _velocity.magnitude;
+        public float Speed => Velocity.magnitude;
+
+        public Vector2 Velocity { get; private set; }
+        public float Rotation { get; private set; }
+        public int LaserCharges { get; private set; }
+        public float LaserCooldown { get; private set; }
+        public bool IsThrusting { get; private set; }
+        public bool IsAlive { get; private set; }
+
 
         public Player(GameConfig config)
         {
@@ -33,70 +29,70 @@ namespace AsteroidsClone
         public void Reset(GameConfig config)
         {
             _position = Vector2.zero;
-            _velocity = Vector2.zero;
-            _rotation = 0f;
-            _laserCharges = config.MaxLaserCharges;
-            _laserCooldown = 0f;
-            _isThrusting = false;
-            _isAlive = true;
+            Velocity = Vector2.zero;
+            Rotation = 0f;
+            LaserCharges = config.MaxLaserCharges;
+            LaserCooldown = 0f;
+            IsThrusting = false;
+            IsAlive = true;
         }
 
         public void Rotate(float input, float deltaTime, GameConfig config)
         {
-            _rotation += input * config.PlayerRotationSpeed * deltaTime;
-            _rotation = (_rotation % 360f + 360f) % 360f;
+            Rotation += input * config.PlayerRotationSpeed * deltaTime;
+            Rotation = (Rotation % 360f + 360f) % 360f;
         }
 
         public void Thrust(bool isThrusting, float deltaTime, GameConfig config)
         {
-            _isThrusting = isThrusting;
+            IsThrusting = isThrusting;
 
             if (isThrusting)
             {
-                var radians = _rotation * Mathf.Deg2Rad;
+                var radians = Rotation * Mathf.Deg2Rad;
                 var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
 
-                _velocity += direction * config.PlayerAcceleration * deltaTime;
+                Velocity += direction * config.PlayerAcceleration * deltaTime;
 
-                if (_velocity.magnitude > config.PlayerMaxSpeed)
+                if (Velocity.magnitude > config.PlayerMaxSpeed)
                 {
-                    _velocity = _velocity.normalized * config.PlayerMaxSpeed;
+                    Velocity = Velocity.normalized * config.PlayerMaxSpeed;
                 }
             }
             else
             {
-                _velocity *= config.PlayerDrag;
+                Velocity *= config.PlayerDrag;
             }
         }
 
         public void UpdatePosition(float deltaTime, GameConfig config)
         {
-            _position += _velocity * deltaTime;
+            _position += Velocity * deltaTime;
             _position = WrapPosition(_position, config);
         }
 
         public void UpdateLaser(float deltaTime, GameConfig config)
         {
-            if (_laserCharges < config.MaxLaserCharges)
+            if (LaserCharges < config.MaxLaserCharges)
             {
-                _laserCooldown += deltaTime;
+                LaserCooldown += deltaTime;
 
-                if (_laserCooldown >= config.LaserRechargeTime)
+                if (LaserCooldown >= config.LaserRechargeTime)
                 {
-                    _laserCharges++;
-                    _laserCooldown = 0f;
-                    OnLaserChargesChanged?.Invoke(_laserCharges);
+                    LaserCharges++;
+                    LaserCooldown = 0f;
+                    OnLaserChargesChanged?.Invoke(LaserCharges);
                 }
             }
         }
 
         public bool TryFireLaser()
         {
-            if (_laserCharges > 0)
+            if (LaserCharges > 0)
             {
-                _laserCharges--;
-                _laserCooldown = 0f;
-                OnLaserChargesChanged?.Invoke(_laserCharges);
+                LaserCharges--;
+                LaserCooldown = 0f;
+                OnLaserChargesChanged?.Invoke(LaserCharges);
 
                 return true;
             }
@@ -106,9 +102,9 @@ namespace AsteroidsClone
 
         public void Kill()
         {
-            if (_isAlive)
+            if (IsAlive)
             {
-                _isAlive = false;
+                IsAlive = false;
                 OnDestroyed?.Invoke(this);
             }
         }

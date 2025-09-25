@@ -40,10 +40,12 @@ namespace AsteroidsClone
         public GameObject GetFromPool(EntityType entityType)
         {
             var pool = _pools[entityType];
+
             if (pool.Count > 0)
             {
                 return pool.Dequeue();
             }
+
             return Object.Instantiate(_prefabs[entityType]);
         }
 
@@ -60,6 +62,7 @@ namespace AsteroidsClone
                 while (pool.Count > 0)
                 {
                     var obj = pool.Dequeue();
+
                     if (obj != null)
                         Object.Destroy(obj);
                 }
