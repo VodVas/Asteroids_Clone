@@ -12,48 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7a66486caca0f48819a49802df5583, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  _screenWidth: 25
-  _screenHeight: 15
-  _playerAcceleration: 10
-  _playerMaxSpeed: 8
-  _playerRotationSpeed: 180
-  _playerDrag: 0.99
-  _bulletSpeed: 15
-  _bulletLifetime: 2
-  _maxLaserCharges: 3
-  _laserRechargeTime: 5
-  _laserRange: 50
-  _laserVisualActiveTime: 0.3
-  _bulletCooldown: 0.25
-  _bulletPositionOffset: 0.5
-  _bulletInheritVelocityFactor: 0.5
-  _visualBulletRotationOffset: -90
-  _asteroidSpeeds:
+  <ScreenWidth>k__BackingField: 20
+  <ScreenHeight>k__BackingField: 15
+  <PlayerAcceleration>k__BackingField: 10
+  <PlayerMaxSpeed>k__BackingField: 8
+  <PlayerRotationSpeed>k__BackingField: 180
+  <PlayerDrag>k__BackingField: 0.99
+  <BulletSpeed>k__BackingField: 15
+  <BulletLifetime>k__BackingField: 2
+  <MaxLaserCharges>k__BackingField: 3
+  <LaserRechargeTime>k__BackingField: 5
+  <LaserRange>k__BackingField: 50
+  <LaserVisualActiveTime>k__BackingField: 1
+  <BulletCooldown>k__BackingField: 0.25
+  <BulletPositionOffset>k__BackingField: 0.5
+  <BulletInheritVelocityFactor>k__BackingField: 0.5
+  <VisualBulletRotationOffset>k__BackingField: -90
+  <AsteroidSpeeds>k__BackingField:
   - 2
   - 3
   - 4
-  _asteroidScores: 140000003200000064000000
-  _asteroidFragments: 2
-  _asteroidColliderRadiusPerSize: 0.3
-  _asteroidFragmentOffsetDistance: 0.5
-  _asteroidVisualScaleFactor: 0.2
-  _ufoSpeed: 3
-  _ufoScore: 200
-  _ufoColliderRadius: 0.5
-  _initialSpawnDelay: 3
-  _minSpawnDelay: 0.5
-  _spawnAcceleration: 0.95
-  _initialAsteroidsCount: 3
-  _ufoSpawnDelayMultiplier: 3
-  _defaultAsteroidSize: 3
-  _edgeSpawnMargin: 1
-  _asteroidPoolInitial: 20
-  _bulletPoolInitial: 30
-  _ufoPoolInitial: 5
-  _playerViewRotationOffset: 270
-  _defaultColliderRadius: 0.3
-  _thrustKey: 119
-  _bulletKey: 323
-  _laserKey: 32
-  _restartKey: 114
-  _rotationAxis: Horizontal
+  <AsteroidScores>k__BackingField: 140000003200000064000000
+  <AsteroidFragments>k__BackingField: 2
+  <AsteroidColliderRadiusPerSize>k__BackingField: 0.3
+  <AsteroidFragmentOffsetDistance>k__BackingField: 0.5
+  <AsteroidVisualScaleFactor>k__BackingField: 0.2
+  <UfoSpeed>k__BackingField: 3
+  <UfoScore>k__BackingField: 200
+  <UfoColliderRadius>k__BackingField: 0.5
+  <InitialSpawnDelay>k__BackingField: 3
+  <MinSpawnDelay>k__BackingField: 0.5
+  <SpawnAcceleration>k__BackingField: 0.95
+  <InitialAsteroidsCount>k__BackingField: 3
+  <UfoSpawnDelayMultiplier>k__BackingField: 3
+  <DefaultAsteroidSize>k__BackingField: 3
+  <EdgeSpawnMargin>k__BackingField: 1
+  <AsteroidPoolInitial>k__BackingField: 20
+  <BulletPoolInitial>k__BackingField: 30
+  <UfoPoolInitial>k__BackingField: 5
+  <PlayerViewRotationOffset>k__BackingField: 270
+  <DefaultColliderRadius>k__BackingField: 0.3
+  <ThrustKey>k__BackingField: 119
+  <BulletKey>k__BackingField: 323
+  <LaserKey>k__BackingField: 32
+  <RestartKey>k__BackingField: 114
+  <RotationAxis>k__BackingField: Horizontal
